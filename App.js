@@ -28,6 +28,12 @@ export default class App extends React.Component {
     ],
   };
 
+  keyExtractor = (item, index) => index.toString();
+
+  //keyExtractor = function(item, index) {
+  //  return index.toString();
+  //};
+
   addTweet = () => {
     this.setState({
       tweets: [
@@ -48,6 +54,7 @@ export default class App extends React.Component {
       <SafeAreaView style={styles.container}>
         <FlatList
           data={this.state.tweets}
+          keyExtractor={this.keyExtractor}
           renderItem={({ item }) => (
             <TweetItem
               name={item.name}
