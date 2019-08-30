@@ -1,9 +1,10 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, View, FlatList, SafeAreaView } from 'react-native';
 import TweetItem from './components/TweetItem';
 
-export default function App() {
-  this.state = {
+export default class App extends React.Component {
+  state = {
+    inputText: '',
     tweets: [
       {
         name: 'Ken',
@@ -20,25 +21,28 @@ export default function App() {
     ],
   };
 
-  const tweetItems = this.state.tweets.map((tweet, index) => {
+  render() {
     return (
-      <TweetItem
-        name={tweet.name}
-        text={tweet.text}
-        like={tweet.like}
-        imageUri={tweet.imageUri}
-        key={index}
-      />
+      <SafeAreaView style={styles.container}>
+        <FlatList
+          data={this.state.tweets}
+          renderItem={({ item }) => (
+            <TweetItem
+              name={item.name}
+              text={item.text}
+              like={item.like}
+              imageUri={item.imageUri}
+            />
+          )}
+        />
+      </SafeAreaView>
     );
-  });
-  return <View style={styles.container}>{tweetItems}</View>;
+  }
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
   },
 });

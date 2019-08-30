@@ -35,6 +35,7 @@ const styles = StyleSheet.create({
     borderColor: 'gray',
     borderTopWidth: 1,
     borderBottomWidth: 1,
+    marginVertical: 4,
   },
   textContainer: {
     marginLeft: 10,
