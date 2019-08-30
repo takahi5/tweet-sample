@@ -9,14 +9,14 @@ export default class TweetItem extends React.Component {
           <Image
             style={{ width: 50, height: 50 }}
             source={{
-              uri: 'https://facebook.github.io/react-native/img/tiny_logo.png',
+              uri: this.props.imageUri,
             }}
           />
         </View>
         <View style={styles.textContainer}>
-          <Text style={styles.nameText}>@Takeshi</Text>
-          <Text>Hello world</Text>
-          <Text>♡10</Text>
+          <Text style={styles.nameText}>{`@${this.props.name}`}</Text>
+          <Text>{this.props.text}</Text>
+          <Text>{`♡${this.props.like}`}</Text>
         </View>
       </View>
     );

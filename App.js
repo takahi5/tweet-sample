@@ -5,7 +5,18 @@ import TweetItem from './components/TweetItem';
 export default function App() {
   return (
     <View style={styles.container}>
-      <TweetItem />
+      <TweetItem
+        name="Ken"
+        text="Hello world"
+        like={15}
+        imageUri="https://picsum.photos/id/3/200/200"
+      />
+      <TweetItem
+        name="Taro"
+        text="Hey"
+        like={20}
+        imageUri="https://picsum.photos/id/1/200/200"
+      />
     </View>
   );
 }
