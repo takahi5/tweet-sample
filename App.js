@@ -28,6 +28,20 @@ export default class App extends React.Component {
     ],
   };
 
+  addTweet = text => {
+    this.setState({
+      tweets: [
+        ...this.state.tweets,
+        {
+          name: 'Taro',
+          text: 'Wow',
+          like: 0,
+          imageUri: 'https://picsum.photos/id/4/200/200',
+        },
+      ],
+    });
+  };
+
   render() {
     return (
       <SafeAreaView style={styles.container}>
@@ -44,7 +58,7 @@ export default class App extends React.Component {
         />
         <View style={styles.inputContainer}>
           <TextInput style={styles.input} />
-          <Button title="OK" />
+          <Button title="OK" onPress={this.addTweet} />
         </View>
       </SafeAreaView>
     );
