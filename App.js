@@ -1,5 +1,12 @@
 import React from 'react';
-import { StyleSheet, View, FlatList, SafeAreaView } from 'react-native';
+import {
+  StyleSheet,
+  View,
+  FlatList,
+  SafeAreaView,
+  TextInput,
+  Button,
+} from 'react-native';
 import TweetItem from './components/TweetItem';
 
 export default class App extends React.Component {
@@ -35,6 +42,10 @@ export default class App extends React.Component {
             />
           )}
         />
+        <View style={styles.inputContainer}>
+          <TextInput style={styles.input} />
+          <Button title="OK" />
+        </View>
       </SafeAreaView>
     );
   }
@@ -44,5 +55,18 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
+  },
+  inputContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    padding: 5,
+  },
+  input: {
+    borderWidth: 1,
+    borderColor: 'gray',
+    borderRadius: 4,
+    height: 30,
+    flex: 1,
+    padding: 2,
   },
 });
